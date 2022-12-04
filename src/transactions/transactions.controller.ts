@@ -41,5 +41,9 @@ export class TransactionsController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.transactionsService.remove(+id);
+
+    function testWithMusic() {
+      console.log('console of test with music');
+    }
   }
 }
