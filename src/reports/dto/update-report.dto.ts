@@ -1,4 +1,13 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateReportDto } from './create-report.dto';
+import { IsNotEmpty, IsIn, MaxLength, IsString } from 'class-validator';
+import { ReportStatus, ReportStatusList } from '../entities/report.entity';
 
-export class UpdateReportDto extends PartialType(CreateReportDto) {}
+export class UpdateReportDto {
+  @MaxLength(255)
+  @IsString()
+  @IsNotEmpty()
+  file_url: string;
+
+  @IsIn(ReportStatusList)
+  @IsNotEmpty()
+  status: ReportStatus;
+}
