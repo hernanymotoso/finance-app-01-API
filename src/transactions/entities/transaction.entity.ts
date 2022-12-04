@@ -11,17 +11,21 @@ export enum TransactionCategory {
   CATEGORY2 = 'category2',
 }
 
+export const TransactionCategoryList = Object.values(TransactionCategory);
+
 export enum TransactionType {
   CREDIT = 'credit',
   DEBIT = 'debit',
 }
+
+export const TransactionTypeList = Object.values(TransactionType);
 
 @Table({
   tableName: 'transactions',
   createdAt: 'created_at',
   updatedAt: 'updated_at',
 })
-export class Transaction extends Model {
+export class Transaction extends Model<Transaction> {
   @PrimaryKey
   @Column({ type: DataType.UUID, defaultValue: DataType.UUIDV4 })
   id: string;
