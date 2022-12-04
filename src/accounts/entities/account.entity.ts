@@ -6,6 +6,7 @@ import {
   DataType,
   Default,
 } from 'sequelize-typescript';
+import { ToNumber } from '../../common/db/to-number.decorator';
 
 @Table({
   tableName: 'accounts',
@@ -23,6 +24,7 @@ export class Account extends Model<Account> {
   @Column({ allowNull: false })
   name: string;
 
+  @ToNumber
   @Default(0)
   @Column({
     type: DataType.DECIMAL(10, 2),
@@ -33,5 +35,5 @@ export class Account extends Model<Account> {
   @Column({
     allowNull: false,
   })
-  subDomain: string;
+  subdomain: string;
 }
